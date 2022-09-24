@@ -6,6 +6,7 @@ const GiphySearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(false);
   const [result, setResult] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -14,12 +15,15 @@ const GiphySearch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(false);
     try {
       const res = await getData(searchTerm);
       setResult(res.data);
     } catch (e) {
       setError(true);
     }
+    setLoading(false);
   };
 
   return (
@@ -45,8 +49,9 @@ const GiphySearch = () => {
           Search
         </button>
       </form>
+      {loading && <p className="mt-10">Loading...</p>}
       {error ? (
-        <p>Unable to fetch data</p>
+        <p className="mt-10">Unable to fetch data</p>
       ) : (
         <div className="mt-10 flex flex-wrap gap-5">
           {result.map((giphy, i) => {
