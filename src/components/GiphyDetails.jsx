@@ -10,7 +10,7 @@ const GiphyDetails = () => {
       {data && (
         <div>
           <img
-            className="w-[300px] contain"
+            className="w-[300px] object-contain"
             src={data.images.original.url}
             alt={data.title}
           />
