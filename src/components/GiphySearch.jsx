@@ -58,7 +58,7 @@ const GiphySearch = () => {
             return (
               <img
                 key={giphy.slug}
-                className="contain w-[300px] cursor-pointer"
+                className="object-contain w-[300px] cursor-pointer"
                 src={giphy.images.original.url}
                 alt={giphy.title}
                 onClick={() =>
