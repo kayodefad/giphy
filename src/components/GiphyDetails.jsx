@@ -11,16 +11,16 @@ const GiphyDetails = () => {
         <div>
           <img
             className="w-[300px] object-contain"
-            src={data.images.original.url}
-            alt={data.title}
+            src={data?.images.original.url}
+            alt={data?.title}
           />
           <ul className=" border border-slate-400 p-2">
             <li>
-              <span className="font-semibold">Title:</span> {data.title}
+              <span className="font-semibold">Title:</span> {data?.title}
             </li>
             <li>
               <span className="font-semibold">Author:</span>{" "}
-              {data.user.display_name}
+              {data?.user?.display_name}
             </li>
             <li>
               <span className="font-semibold">Date:</span>{" "}
